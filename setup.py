@@ -172,8 +172,7 @@ def configuration(parent_package='', top_path=None):
 
 def setup_package():
     metadata = dict(name=DISTNAME,
-                    install_requires=["numpy"],
-                    setup_requires=["numpy"],
+                    setup_requires=["numpy", "cython"],
                     maintainer=MAINTAINER,
                     maintainer_email=MAINTAINER_EMAIL,
                     description=DESCRIPTION,
