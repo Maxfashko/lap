@@ -29,7 +29,7 @@ import lap
 
 VERSION = lap.__version__
 
-NUMPY_MIN_VERSION = '1.10.1'
+NUMPY_MIN_VERSION = '1.21.6'
 
 SETUPTOOLS_COMMANDS = set([
     'develop', 'release', 'bdist_egg', 'bdist_rpm',
