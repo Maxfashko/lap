@@ -29,8 +29,7 @@ import lap
 
 VERSION = lap.__version__
 
-NUMPY_MIN_VERSION = '1.21.6'
-NUMPY_MAX_VERSION = "1.22.4"
+NUMPY_MIN_VERSION = '1.22.2'
 
 
 SETUPTOOLS_COMMANDS = set([
@@ -47,7 +46,7 @@ if SETUPTOOLS_COMMANDS.intersection(sys.argv):
         include_package_data=True,
         extras_require={
             'alldeps': (
-                'numpy >= {0} <= {1}'.format(NUMPY_MIN_VERSION, NUMPY_MAX_VERSION),
+                'numpy == {0}'.format(NUMPY_MIN_VERSION),
             ),
         },
     )
@@ -128,7 +127,7 @@ def get_numpy_status():
     try:
         import numpy
         numpy_version = numpy.__version__
-        numpy_status['up_to_date'] = parse_version(numpy_version) >= parse_version(NUMPY_MIN_VERSION) <= parse_version(NUMPY_MAX_VERSION)
+        numpy_status['up_to_date'] = parse_version(numpy_version) == parse_version(NUMPY_MIN_VERSION)
         numpy_status['version'] = numpy_version
     except ImportError:
         traceback.print_exc()
@@ -173,8 +172,8 @@ def configuration(parent_package='', top_path=None):
 
 def setup_package():
     metadata = dict(name=DISTNAME,
-                    setup_requires=["numpy>=1.21.6 <=1.22.4", "cython==0.29.32"],
-                    install_requires=["numpy>=1.21.6  <=1.22.4", "cython==0.29.32"],
+                    setup_requires=["numpy==1.22.2", "cython==0.29.32"],
+                    install_requires=["numpy==1.22.2", "cython==0.29.32"],
                     maintainer=MAINTAINER,
                     maintainer_email=MAINTAINER_EMAIL,
                     description=DESCRIPTION,
